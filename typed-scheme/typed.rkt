@@ -75,3 +75,10 @@
   (if (null? l)
       0
       (add1 (list-length (cdr l)))))
+
+;; Variable-arity Functions
+(: sum (-> Number * Number))
+(define (sum . xs)
+  (if (null? xs)
+      0
+      (+ (car xs) (apply sum (cdr xs)))))
